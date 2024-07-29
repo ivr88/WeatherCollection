@@ -1,17 +1,9 @@
 import UIKit
 
 class WeatherView: UIView {
+
     
-    let weather = ["Гроза", "Дождь", "Облачно", "Снег", "Ясно"]
-    
-    func randomImage() -> UIImage {
-        let unsignedArrayCount = UInt32(weather.count)
-        let unsignedRandomNumber = arc4random_uniform(unsignedArrayCount)
-        let randomNumber = Int(unsignedRandomNumber)
-        return UIImage(named: weather[randomNumber])!
-    }
-    
-    let weatherImageView: UIImageView = {
+    private let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 20
@@ -35,6 +27,10 @@ class WeatherView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func updateImage(named: String) {
+        weatherImageView.image = UIImage(named: named)
+    }
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             weatherImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -43,5 +39,4 @@ class WeatherView: UIView {
             weatherImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant:-10)
         ])
     }
-    
 }

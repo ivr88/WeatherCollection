@@ -11,7 +11,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let weatherLabel: UILabel = {
+    let weatherLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .white
@@ -51,7 +51,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             weatherLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            weatherLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor, constant: 5)
+            weatherLabel.topAnchor.constraint(equalTo: weatherImageView.bottomAnchor)
         ])
     }
 }
